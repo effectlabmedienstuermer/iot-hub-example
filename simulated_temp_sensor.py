@@ -3,7 +3,7 @@
 # Licensed under the MIT License. See License.txt in the project root for
 # license information.
 # --------------------------------------------------------------------------
-
+import asyncio
 import json
 import random
 
@@ -43,11 +43,14 @@ def get_random_datum():
     }
 
 
-if __name__ == "__main__":
+async def main():
     for i in range(10):
         payload = [get_random_datum(), get_random_datum(), get_random_datum()]
         payload = json.dumps(payload)
         message = Message(payload, content_encoding="utf-8", content_type="application/json")
-        send_messages([message])
+        await send_messages([message])
 
+
+if __name__ == "__main__":
+    asyncio.run(main())
     print("Sent 10 messages to Azure. Check database.")

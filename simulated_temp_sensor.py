@@ -46,7 +46,8 @@ def get_random_datum():
 
 async def main():
     for i in range(10):
-        payload = [get_random_datum(), get_random_datum(), get_random_datum()]
+        # payload = [get_random_datum(), get_random_datum(), get_random_datum()]
+        payload = get_random_datum()
         payload = json.dumps(payload)
         message = Message(payload, content_encoding="utf-8", content_type="application/json")
         await send_messages([message])

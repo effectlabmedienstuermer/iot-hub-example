@@ -7,7 +7,8 @@ import asyncio
 import json
 import random
 
-from azure.iot.device import IoTHubDeviceClient, Message
+from azure.iot.device import Message
+from azure.iot.device.aio import IoTHubDeviceClient
 
 
 def load_file(path):

@@ -5,6 +5,7 @@
 # --------------------------------------------------------------------------
 import asyncio
 import json
+import time
 import random
 
 from azure.iot.device import Message
@@ -38,6 +39,8 @@ async def send_messages(messages: list):
 
 def get_random_datum():
     return {
+        "id": "sim-device",
+        "timestamp": time.time_ns() // 1_000_000,
         "temperature": random.uniform(0.0, 35.0),
         "humidity": random.uniform(0.0, 100.0),
         "window": random.choice([True, False])
